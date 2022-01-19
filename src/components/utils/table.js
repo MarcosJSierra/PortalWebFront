@@ -32,7 +32,7 @@ function BaseTable(props){
                     </tr>
                     {
                             elementos.map(element => (
-                                <TdBase key={element.codiigo} elemento={element} origen={props.base}/>
+                                <TdBase key={element.codigo} elemento={element} origen={props.base}/>
                             ))
                     }
                     
