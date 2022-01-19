@@ -6,18 +6,16 @@ import { MainPage } from './components/';
 function App() {
   return (
     // <BrowserRouter>
-      <div>
-        <Header />
-        <div className="container">
-          <Switch>
-            <Route path="/productos">
-            </Route>
-            <Route path="/">
-              <MainPage />
-            </Route>
-          </Switch>
-        </div>
+    <div>
+      <Header />
+      <div className="container-fluid">
+        <Switch>
+          <Route path="/">
+            <MainPage />
+          </Route>
+        </Switch>
       </div>
+    </div>
     // </BrowserRouter>
   );
 }
