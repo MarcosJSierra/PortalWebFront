@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { baseApiURL } from "../../utils/utils";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -26,10 +26,21 @@ function BaseForm(props){
 
     const onSubmit = (event) => {
         event.preventDefault();
-        const promesa = axios.post(baseApiURL + props.itemsSource, stateElement);
+        let dataPayload = stateElement;
+        if(props.referenceValues){
+            props.referenceValues.forEach((x)=>{
+                dataPayload= {
+                    ...dataPayload,
+                    [x]:{ 
+                        "codigo": stateElement[x]
+                    }
+                }
+            })
+        }
+        const promesa = axios.post(baseApiURL + props.itemsSource, dataPayload);
         promesa
             .then(Response => {
-                history.push("/distribuidores");
+                history.push("/"+props.origen);
                 return Response.data;
             })
             .catch(()=>{

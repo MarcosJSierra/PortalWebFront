@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 
 function BaseTable(props){
     let elementosIniciales = [];
-    const [elementos, setElementos] = useState(elementosIniciales);
+    let [elementos, setElementos] = useState(elementosIniciales);
     useEffect(() =>{
         const promesa = axios.get(baseApiURL + props.itemsSource);
+        console.log(promesa);
         promesa
             .then(Response => {
                 return Response.data;
@@ -32,7 +33,7 @@ function BaseTable(props){
                     </tr>
                     {
                             elementos.map(element => (
-                                <TdBase key={element.codigo} elemento={element} origen={props.base}/>
+                                <TdBase key={element.codigo} elemento={element} origen={props.base} displayName={props.displayName}/>
                             ))
                     }
                     
@@ -52,15 +53,20 @@ function ThBase(props){
 
 function TdBase(props){
     let valores = Object.entries(props.elemento);
-    
     return(
         <React.Fragment>
             <tr>
-                {valores.map(arreglo => (
-                    <td key={arreglo[1]}>
+            {valores.map(arreglo => {
+                    if(typeof arreglo[1] != "object"){
+                    return (<td key={arreglo[1]}>
                         {arreglo[1]}
-                    </td>
-                ))}
+                    </td>);
+                    } else {
+                        return (<td key={arreglo[1][props.displayName]}>
+                            {arreglo[1][props.displayName]}
+                        </td>);
+                    }
+            })}
                 <td>
                     <Link to={"/"+props.origen+"/editar/"+props.elemento.codigo}>Editar</Link>
                      |
