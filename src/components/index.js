@@ -1,6 +1,6 @@
 import React from "react";
 
-function mainPage(){
+function MainPage(){
     return(
         <React.Fragment>
             <h1>Portal Web</h1>
@@ -8,4 +8,5 @@ function mainPage(){
     );
 }
 
-export { mainPage }
+
+export { MainPage }
