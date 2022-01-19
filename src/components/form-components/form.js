@@ -77,7 +77,7 @@ function DeleteForm(props){
         const promesa = axios.delete(baseApiURL + props.itemsSource+ "/" + codigo);
         promesa
             .then(Response => {
-                history.push("/distribuidores");
+                history.push("/"+ props.origen);
             })
             .catch(()=>{
                 console.log("on errors")

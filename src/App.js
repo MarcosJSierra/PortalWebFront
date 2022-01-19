@@ -5,22 +5,27 @@ import { Header } from './components/Headr/header';
 import { MainPage } from './components/';
 import { DistribuidoresMain } from './components/distribuidores';
 import { ProductosMain } from './components/productos';
+import { CanalesAutorizadosMain } from './components/canales-autorizados';
 
 function App() {
   return (
     <BrowserRouter>
     <div>
       <Header />
-      <div className="container-fluid">
+      <div className="container-xxl">
         <Switch>
-          <Route path="/distribuidores">
+          
+          <Route exact path="/distribuidores">
             <DistribuidoresMain />
           </Route >
           <Route exact path="/">
             <MainPage />
           </Route>
-          <Route exact paht="/productos">
+          <Route  eaxact path="/productos">
             <ProductosMain />
+          </Route>
+          <Route  exact paht="/canalesautorizados">
+            <CanalesAutorizadosMain />
           </Route>
         </Switch>
       </div>
