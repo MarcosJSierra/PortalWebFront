@@ -8,4 +8,19 @@ function ToCreateButton(props){
     );
 }
 
-export { ToCreateButton }
+function ToDeleteButton(props){
+    return(
+        <React.Fragment>
+            <button onClick={props.eventFunction} tittle="Crear" className="btn btn-danger">¿Seguro desea borrar {props.texto}?</button>
+        </React.Fragment>
+    );
+}
+function ToReturnButton(props){
+    return(
+        <React.Fragment>
+            <Link to={"/" + props.origen} tittle="Volver" className="btn btn-warning">Volver al menú</Link>
+        </React.Fragment>
+    );
+}
+
+export { ToCreateButton, ToReturnButton, ToDeleteButton }

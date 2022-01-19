@@ -62,13 +62,15 @@ function TdBase(props){
                     </td>
                 ))}
                 <td>
-                    <Link to={"/"+props.origen+"/editar"}>Editar</Link>
+                    <Link to={"/"+props.origen+"/editar/"+props.elemento.codigo}>Editar</Link>
                      |
-                    <Link to={"/"+props.origen+"/Eliminar"}>Eliminar</Link>
+                    <Link to={"/"+props.origen+"/eliminar/"+props.elemento.codigo}>Eliminar</Link>
                 </td>
             </tr>
         </React.Fragment>
     )
 }
+
+
 
 export {BaseTable}
