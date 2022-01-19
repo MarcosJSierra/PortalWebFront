@@ -8,14 +8,15 @@ function App() {
     // <BrowserRouter>
       <div>
         <Header />
-        <Switch>
-          <Route path="/">
-            <MainPage />
-          </Route>
-          <Route path="/productos">
-            <h1>cambio</h1>
-          </Route>
-        </Switch>
+        <div className="container">
+          <Switch>
+            <Route path="/productos">
+            </Route>
+            <Route path="/">
+              <MainPage />
+            </Route>
+          </Switch>
+        </div>
       </div>
     // </BrowserRouter>
   );
