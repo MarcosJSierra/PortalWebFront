@@ -1,13 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { baseApiURL } from "../../utils/utils";
+import { useHistory } from "react-router-dom";
 import { BaseSaveFormButton } from "./button";
 import { BaseInputFieldForm } from "./field";
 import { push } from "connected-react-router";
 
 function BaseForm(props){
+
     const [stateElement, setStateElement] = useState(props.initialElement);
-    const redirect = false;
+    let history = useHistory();
 
     const onChange = (event) =>{
         const target = event.target;
@@ -25,7 +27,7 @@ function BaseForm(props){
         const promesa = axios.post(baseApiURL + props.itemsSource, stateElement);
         promesa
             .then(Response => {
-                push("/distribuidores");
+                history.push("/distribuidores");
                 return Response.data;
             })
             .catch(()=>{
