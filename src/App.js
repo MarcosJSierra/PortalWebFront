@@ -15,16 +15,16 @@ function App() {
       <div className="container-xxl">
         <Switch>
           
-          <Route exact path="/distribuidores">
+          <Route path="/distribuidores">
             <DistribuidoresMain />
           </Route >
           <Route exact path="/">
             <MainPage />
           </Route>
-          <Route  eaxact path="/productos">
+          <Route  path="/productos">
             <ProductosMain />
           </Route>
-          <Route  exact paht="/canalesautorizados">
+          <Route  paht="/canalesautorizados">
             <CanalesAutorizadosMain />
           </Route>
         </Switch>
